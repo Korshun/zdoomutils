@@ -2,7 +2,7 @@ This is a collection of utilities to simplify modding for ZDoom. You need [Pytho
 
 ## acsinclude
 
-Replaces `#include` directives with contents of the included files. Ignores zcommon.acs.
+Replaces `#include` directives with contents of the included files (ignoring zcommon.acs). This allows the resuting file to be `#import`ed by ACC, because ACC does not handle `#include` in imported files.
 
 ## sndinfogen
 
