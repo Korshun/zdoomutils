@@ -15,6 +15,9 @@ def main():
     randomized = {}
     warning = False
     with open(os.path.join(pk3root, 'sndinfo.sux'), 'w') as sndinfo:
+		sndinfo.write('DSEMPTY DSEMPTY\n')
+		sndinfo.write('NOSOUND DSEMPTY\n')
+	
         for root, dirs, files in os.walk(os.path.join(pk3root, 'sounds'), onerror=raise_error):
             for file in files:
                 filepath = os.path.join(root, file)
