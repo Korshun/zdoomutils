@@ -33,7 +33,7 @@ def main(pk3root, allow_lumpnames, allow_fullpaths):
         if randomize:
             number = ''
             while name[-1].isdigit():
-                number += name[-1]
+                number = name[-1] + number
                 name = name[:-1]
             if number:   
                 if name in randomized:
