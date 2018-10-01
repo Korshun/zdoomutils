@@ -50,17 +50,17 @@ def main(pk3root, allow_lumpnames, allow_fullpaths):
                 if allow_fullpaths and lumpname != filepath_sndinfoname:
                     add_entry(filepath_sndinfoname, filepath)
                         
-        for name, digits in randomized.items():
-            if len(digits) < 2:
+        for name, numbers in randomized.items():
+            if len(numbers) < 2:
                 continue
             if name in used_soundnames:
-                print('WARNING: existing sound {} overrides the randomized sound set with the same name'.format(name))
+                print('WARNING: existing sound {} overrides the randomized sound set of the same name, containing {} sounds  '.format(name, len(numbers)))
                 warning = True
                 continue
                 
             sndinfo.write('$random ' + name + ' { ')
-            for digit in digits:
-                sndinfo.write(name + digit + ' ')
+            for number in numbers:
+                sndinfo.write(name + number + ' ')
             sndinfo.write('} \n')
         
     sys.exit(int(warning))
