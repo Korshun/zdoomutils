@@ -35,6 +35,10 @@ def main(pk3root, allow_lumpnames, allow_fullpaths):
             while name[-1].isdigit():
                 number = name[-1] + number
                 name = name[:-1]
+            
+            if name[-1] == '-' or name[-1] == '_':
+                name = name[:-1]
+
             if number:   
                 if name in randomized:
                     randomized[name].append(number)
