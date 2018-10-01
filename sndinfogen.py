@@ -37,14 +37,16 @@ def main(pk3root, allow_lumpnames, allow_fullpaths):
                 name = name[:-1]
             
             randomized_name = name
+            prefix = ''
             if name[-1] == '-' or name[-1] == '_':
                 randomized_name = name[:-1]
+                prefix = name[-1]
 
             if number:   
-                if name in randomized:
-                    randomized[randomized_name].append(number)
+                if randomized_name in randomized:
+                    randomized[randomized_name].append(prefix + number)
                 else:
-                    randomized[randomized_name] = [number]
+                    randomized[randomized_name] = [prefix + number]
         
     with open(os.path.join(pk3root, 'sndinfo.sux'), 'w') as sndinfo:
         sndinfo.write(HEADER)
