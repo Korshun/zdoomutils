@@ -65,11 +65,11 @@ def main(pk3root, allow_lumpnames, allow_fullpaths):
                 if root[7:] == '':
                     filepath_sndinfoname = lumpname
                 else:
-                    filepath_sndinfoname = root[7:] + '/' + lumpname                
-                                
+                    filepath_sndinfoname = root[7:] + '/' + lumpname
+                
                 if allow_lumpnames:
                     add_entry(lumpname, filepath) 
-                if allow_fullpaths and lumpname != filepath_sndinfoname:
+                if allow_fullpaths and (root[7:] != '' or lumpname != filepath_sndinfoname):
                     add_entry(filepath_sndinfoname, filepath)
                         
         sndinfo.write('\n// randomized sounds\n')
